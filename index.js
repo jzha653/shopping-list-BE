@@ -7,7 +7,10 @@ exports.handler = async (event, context) => {
     let body;
     let statusCode = 200;
     const headers = {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "accept, origin, content-type",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
     };
 
     try {
@@ -17,7 +20,7 @@ exports.handler = async (event, context) => {
                     .delete({
                         TableName: "shopping-list-items",
                         Key: {
-                            id: event.pathParameters.id
+                            id: event.pathParameters.id,
                         }
                     })
                     .promise();
@@ -42,24 +45,26 @@ exports.handler = async (event, context) => {
                     .put({
                         TableName: "shopping-list-items",
                         Item: {
-                            id: requestJSON.id,
+                            id: event.pathParameters.id,
                             name: requestJSON.name,
-                            quantity: requestJSON.quantity
+                            quantity: requestJSON.quantity,
+                            last_updated: new Date(Date.now()).toString()
                         }
                     })
                     .promise();
-                body = `Put item ${requestJSON.id}`;
+                body = `Put item ${requestJSON.name}`;
                 break;
             case "POST /items":
                 let request = JSON.parse(event.body);
-
+            
                 await dynamo
-                    .post({
+                    .put({
                         TableName: "shopping-list-items",
                         Item: {
                             id: uuidv4(),
                             name: request.name,
                             quantity: request.quantity,
+                            last_updated: new Date(Date.now()).toString()
                         }
                     }).promise();
                 body = `Post item`;
