@@ -19,5 +19,3 @@ This project provides the backend for the shopping list app. It has been deploye
 
 ## DB structure
 ![Screen Shot 2021-06-29 at 8 55 23 PM](https://user-images.githubusercontent.com/40383416/123768305-54cd8980-d91c-11eb-8f35-396d87810922.png)
-
-The main reason I chose Dynamo DB is the scalability and compatibility with AWS. Also, as a shopping list, different items might have different properties. Using NoSQL database can better handle inconsistent schema items. When posting new item to database, the UUID library will automatically generate an id for that item.
