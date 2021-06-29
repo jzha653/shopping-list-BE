@@ -1,9 +1,10 @@
 # shopping-list-BE
 
 This project provides the backend for the shopping list app. It has been deployed by AWS Lambda with AWS API Gateway and the data has been saved to DynamoDB.
-{:.center}
-![Screen Shot 2021-06-29 at 8 38 55 PM](https://user-images.githubusercontent.com/40383416/123768706-ac6bf500-d91c-11eb-9247-fa0d02e54471.png)
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40383416/123768706-ac6bf500-d91c-11eb-9247-fa0d02e54471.png">
+</p>
 
 ## API available: 
 
@@ -20,6 +21,3 @@ This project provides the backend for the shopping list app. It has been deploye
 ![Screen Shot 2021-06-29 at 8 55 23 PM](https://user-images.githubusercontent.com/40383416/123768305-54cd8980-d91c-11eb-8f35-396d87810922.png)
 
 The main reason I chose Dynamo DB is the scalability and compatibility with AWS. Also, as a shopping list, different items might have different properties. Using NoSQL database can better handle inconsistent schema items. When posting new item to database, the UUID library will automatically generate an id for that item.
-.center {
-  text-align: center;
-}
