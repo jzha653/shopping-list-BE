@@ -1,7 +1,7 @@
 # shopping-list-BE
 
 This project provides the backend for the shopping list app. It has been deployed by AWS Lambda with AWS API Gateway and the data has been saved to DynamoDB.
-![Screen Shot 2021-06-29 at 8 25 47 PM](https://user-images.githubusercontent.com/40383416/123763743-349bcb80-d918-11eb-891a-26611524f94c.png)
+![Screen Shot 2021-06-29 at 8 38 55 PM](https://user-images.githubusercontent.com/40383416/123768706-ac6bf500-d91c-11eb-9247-fa0d02e54471.png)
 
 
 ## API available: 
